@@ -27,6 +27,7 @@ class View {
       volumeBlendingRatio: null,
       planePositionReset: null,
       planeRotationReset: null,
+      volumeTime: null
     }
   }
 
@@ -58,9 +59,11 @@ class View {
     let that = this
 
     function openFile (n) {
+      console.log("OPEN FILE");
       // dynamically create a file input dialog that we dont even bther adding to the DOM
-      let fileInput = document.createElement('input')
-      fileInput.type='file'
+      //let fileInput = document.createElement('input')
+      //fileInput.type='file'
+      let fileInput = document.getElementById('fileInput')
       fileInput.addEventListener('change', function(e) {
         var file = e.target.files.length ? e.target.files[0] : null
         if (file) {
@@ -106,6 +109,12 @@ class View {
         that._callEvent('volumeColormap', [val, 0])
       })
 
+    this._timeControllerPrimary = primaryGroup.add({time: 0}, 'time').min(0).max(0).step(1)
+      .name('Time')
+      .onChange(function(val){
+        that._callEvent('volumeTime', [val, 0])
+      })
+
 
     let secondaryGroup = this._guiControllers.addFolder('Secondary Volume')
     secondaryGroup.add({display: true}, 'display')
@@ -131,6 +140,14 @@ class View {
       .onChange(function(val){
         that._callEvent('volumeColormap', [val, 1])
       })
+
+    this._timeControllerSecondary = secondaryGroup.add({time: 0}, 'time').min(0).max(0).step(1)
+      .name('Time')
+      .onChange(function(val){
+        that._callEvent('volumeTime', [val, 1])
+      })
+
+      console.log( this._timeControllerSecondary);
 
     let blendingGroup = this._guiControllers.addFolder('Blending')
     blendingGroup.add({method: 'ratio'}, 'method', this._blendMethods )
@@ -223,6 +240,14 @@ class View {
     this._orthoPlaneRotation.updateDisplay()
   }
 
+
+  updateMaxTime (slot, t) {
+    if(slot === 0){
+      this._timeControllerPrimary.max(t).updateDisplay()
+    }else if(slot === 1){
+      this._timeControllerSecondary.max(t).updateDisplay()
+    }
+  }
 
 }
 

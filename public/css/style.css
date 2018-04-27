@@ -49,3 +49,9 @@ body {
   grid-gap: 5px;
   grid-auto-rows: 7vh;
 }
+
+
+#logo {
+  position: absolute;
+  width: 15vw;
+}

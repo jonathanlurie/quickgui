@@ -79,6 +79,12 @@ class Quickgui {
       that._view.updateRotatationInfo( that._renderEngine.getPlaneSystemEulerAngle() )
     })
 
+    this._view.on("volumeTime", function(time, slotIndex){
+      if (that._renderEngine.isSlotTakenN(slotIndex))
+        that._renderEngine.setTimeIndexSlotN(slotIndex, time)
+    })
+
+
 
 
 
@@ -89,6 +95,7 @@ class Quickgui {
         return
 
       that._renderEngine.mountVolumeN( that._slotToAddFileTo, volume )
+      that._view.updateMaxTime(that._slotToAddFileTo, volume.getTimeLength()-1 )
     })
 
 

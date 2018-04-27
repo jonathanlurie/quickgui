@@ -1,2 +1,6 @@
 # quickgui
-[DEMO](./public/index.html)
+[DEMO](http://me.jonathanlurie.fr/quickgui/public/index.html)
+
+Makes good use of [QuickvoxelCore](https://github.com/Pixpipe/quickvoxelcore)
+
+![](snap.png)
