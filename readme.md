@@ -1,2 +1,2 @@
 # quickgui
-[here goes the readme]
+[DEMO](./public/index.html)
