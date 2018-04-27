@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>Quickgui</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <canvas id="renderCanvas"></canvas>
+  <div class="staticSliderWrapper">
+    <div id="xTranslate" class="staticSlider azure">X translate</div>
+    <div id="yTranslate" class="staticSlider azure">Y translate</div>
+    <div id="zTranslate" class="staticSlider azure">Z translate</div>
+
+    <div id="xRotate" class="staticSlider purple">X rotate</div>
+    <div id="yRotate" class="staticSlider purple">Y rotate</div>
+    <div id="zRotate" class="staticSlider purple">Z rotate</div>
+  </div>
+
+
+  <script src="../dist/quickgui.js"></script>
+
+  <script>
+
+    // the foo object is part of our quickgui module
+    var qg = new quickgui.Quickgui()
+
+  </script>
+
+</body>
+</html>

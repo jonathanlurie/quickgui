@@ -1,0 +1,51 @@
+
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.azure {
+  background-color: #4de2c1;
+}
+
+.purple {
+  background-color: #cd92f9;
+}
+
+.staticSlider {
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  line-height: 7vh;
+  user-select: none;
+  font-family: monospace;
+  font-size: 2em;
+  color: #FFF;
+}
+
+.staticSlider:hover {
+  opacity: 0.3;
+}
+
+
+
+
+.staticSliderWrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: 7vh;
+}
