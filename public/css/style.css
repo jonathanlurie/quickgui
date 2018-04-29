@@ -5,9 +5,12 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: monospace;
 }
 
+a {
+  text-decoration: none;
+}
 
 #renderCanvas {
   width: 100%;
@@ -22,13 +25,20 @@ body {
   background-color: #cd92f9;
 }
 
+.azure-text {
+  color: #4de2c1;
+}
+
+.purple-text {
+  color: #cd92f9;
+}
+
 .staticSlider {
   text-align: center;
   cursor: pointer;
   transition: 0.3s;
   line-height: 7vh;
   user-select: none;
-  font-family: monospace;
   font-size: 2em;
   color: #FFF;
 }
@@ -51,7 +61,16 @@ body {
 }
 
 
-#logo {
+#logoDiv {
   position: absolute;
   width: 15vw;
+}
+
+#logoDiv img {
+  width: 100%;
+}
+
+#logoDiv div {
+  text-align: center;
+  font-size: 1.5em;
 }
