@@ -43,6 +43,10 @@ a {
   color: #FFF;
 }
 
+.fas {
+  pointer-events: none;
+}
+
 .staticSlider:hover {
   opacity: 0.3;
 }
@@ -73,4 +77,8 @@ a {
 #logoDiv div {
   text-align: center;
   font-size: 1.5em;
+}
+
+.smaller-text {
+  font-size: 0.7em;
 }

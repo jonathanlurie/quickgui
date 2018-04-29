@@ -57,27 +57,29 @@ class View {
 
   _initDatgui () {
     let that = this
+    let fileSlot = -1
 
-    function openFile (n) {
-      console.log("OPEN FILE");
-      // dynamically create a file input dialog that we dont even bther adding to the DOM
-      //let fileInput = document.createElement('input')
-      //fileInput.type='file'
-      let fileInput = document.getElementById('fileInput')
-      fileInput.addEventListener('change', function(e) {
-        var file = e.target.files.length ? e.target.files[0] : null
-        if (file) {
-          //volumeCollection.addVolumeFromFile( file )
-          that._callEvent('addingFile', [file, n])
-        } else {
-          alert('Did you really select a file?')
-        }
-      })
+    let fileInput = document.getElementById('fileInput')
+
+    fileInput.addEventListener('change', function(e) {
+      var file = e.target.files.length ? e.target.files[0] : null
+      if (file) {
+        that._callEvent('addingFile', [file, fileSlot])
+      }
+
+      // this allows opening the same file twice in a row
+      fileInput.value = ''
+    })
+
+    function openFilePrimary () {
+      fileSlot = 0
       fileInput.click()
     }
 
-    function openFilePrimary () {openFile(0)}
-    function openFileSecondary () {openFile(1)}
+    function openFileSecondary () {
+      fileSlot = 1
+      fileInput.click()
+    }
 
     // add a volume button
     this._guiControllers.add({openFile: openFilePrimary}, 'openFile').name("Add Primary Volume")
@@ -85,6 +87,8 @@ class View {
 
 
     let primaryGroup = this._guiControllers.addFolder('Primary Volume')
+    this._primaryGroupId = primaryGroup.add({id: 'none'}, 'id').name('ID')
+
     primaryGroup.add({display: true}, 'display')
       .name('Display Volume')
       .onChange(function(val){
@@ -117,6 +121,8 @@ class View {
 
 
     let secondaryGroup = this._guiControllers.addFolder('Secondary Volume')
+    this._secondaryGroupId = secondaryGroup.add({id: 'none'}, 'id').name('ID')
+
     secondaryGroup.add({display: true}, 'display')
       .name('Display Volume')
       .onChange(function(val){
@@ -146,8 +152,6 @@ class View {
       .onChange(function(val){
         that._callEvent('volumeTime', [val, 1])
       })
-
-      console.log( this._timeControllerSecondary);
 
     let blendingGroup = this._guiControllers.addFolder('Blending')
     blendingGroup.add({method: 'ratio'}, 'method', this._blendMethods )
@@ -246,6 +250,17 @@ class View {
       this._timeControllerPrimary.max(t).updateDisplay()
     }else if(slot === 1){
       this._timeControllerSecondary.max(t).updateDisplay()
+    }
+  }
+
+
+  updateID (slot, id) {
+    if (slot === 0) {
+      this._primaryGroupId.object.id = id
+      this._primaryGroupId.updateDisplay()
+    } else if (slot === 1) {
+      this._secondaryGroupId.object.id = id
+      this._secondaryGroupId.updateDisplay()
     }
   }
 

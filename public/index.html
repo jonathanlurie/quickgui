@@ -1,26 +1,28 @@
 <html>
 <head>
   <title>Quickgui</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
   <div id="logoDiv">
     <a href="https://github.com/jonathanlurie/quickgui">
       <img id="logo" src="images/qv_logo_horizontal.png"/>
-      <div class="purple-text">#brainhack2018</div>
+      <div class="purple-text">#brainhack2018 <i class="fab fa-github"></i></div>
     </a>
   </div>
 
   <canvas id="renderCanvas"></canvas>
   <input type="file" id="fileInput" style="display:none"/>
   <div class="staticSliderWrapper">
-    <div id="xTranslate" class="staticSlider azure">X translate</div>
-    <div id="yTranslate" class="staticSlider azure">Y translate</div>
-    <div id="zTranslate" class="staticSlider azure">Z translate</div>
+    <div id="xTranslate" class="staticSlider azure"><i class="fas fa-arrow-left smaller-text"></i> X translate <i class="fas fa-arrow-right smaller-text"></i></div>
+    <div id="yTranslate" class="staticSlider azure"><i class="fas fa-arrow-left smaller-text"></i> Y translate <i class="fas fa-arrow-right smaller-text"></i></div>
+    <div id="zTranslate" class="staticSlider azure"><i class="fas fa-arrow-left smaller-text"></i> Z translate <i class="fas fa-arrow-right smaller-text"></i></div>
 
-    <div id="xRotate" class="staticSlider purple">X rotate</div>
-    <div id="yRotate" class="staticSlider purple">Y rotate</div>
-    <div id="zRotate" class="staticSlider purple">Z rotate</div>
+    <div id="xRotate" class="staticSlider purple"><i class="fas fa-arrow-left smaller-text"></i> X rotate <i class="fas fa-arrow-right smaller-text"></i></div>
+    <div id="yRotate" class="staticSlider purple"><i class="fas fa-arrow-left smaller-text"></i> Y rotate <i class="fas fa-arrow-right smaller-text"></i></div>
+    <div id="zRotate" class="staticSlider purple"><i class="fas fa-arrow-left smaller-text"></i> Z rotate <i class="fas fa-arrow-right smaller-text"></i></div>
   </div>
 
 

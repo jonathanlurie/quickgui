@@ -96,6 +96,7 @@ class Quickgui {
 
       that._renderEngine.mountVolumeN( that._slotToAddFileTo, volume )
       that._view.updateMaxTime(that._slotToAddFileTo, volume.getTimeLength()-1 )
+      that._view.updateID( that._slotToAddFileTo, volume.getId() )
     })
 
 
