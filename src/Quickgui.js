@@ -4,6 +4,13 @@ import { View } from './View.js'
 class Quickgui {
 
   constructor () {
+    // test compatibility with WebGL2
+    if (!quickvoxelcore.webGL2()){
+      alert( 'QuickGui Core cannot run here because this web browser is not compatible with WebGL2.' )
+      return;
+    }
+
+
     this._qvcore = new quickvoxelcore.QuickvoxelCore( document.getElementById('renderCanvas') )
     this._volumeCollection = this._qvcore.getVolumeCollection()
     this._renderEngine = this._qvcore.getRenderEngine()
