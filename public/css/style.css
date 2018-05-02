@@ -82,3 +82,13 @@ a {
 .smaller-text {
   font-size: 0.7em;
 }
+
+.filelinks {
+  font-size: 0.6em;
+  color: #4a8de6;
+  transition: all 0.2s;
+}
+
+.filelinks:hover {
+  color: #1e4d9a;
+}
